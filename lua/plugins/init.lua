@@ -9,21 +9,21 @@ return {
       -- or run <leader>ch to see copilot mapping section
     end,
   },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = {
-      mapping = {
-        -- disable  tab
-        ["<Tab>"] = function(callback)
-          callback()
-        end,
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   opts = {
+  --     mapping = {
+  --       -- disable  tab
+  --       ["<Tab>"] = function(callback)
+  --         callback()
+  --       end,
 
-        ["<S-Tab>"] = function(callback)
-          callback()
-        end,
-      },
-    },
-  },
+  --       ["<S-Tab>"] = function(callback)
+  --         callback()
+  --       end,
+  --     },
+  --   },
+  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPre", "BufNewFile" },
@@ -79,7 +79,6 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    disable = true,
     event = "VeryLazy",
     dependencies = { "nvim-lspconfig" },
     config = function()
