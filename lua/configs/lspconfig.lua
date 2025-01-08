@@ -59,9 +59,18 @@ vim.diagnostic.config {
 -- Show line diagnostics automatically in hover window
 --vim.o.updatetime = 250
 --vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+-- Set keymap to show diagnostic
 vim.keymap.set(
   "n",
   "<leader>ld",
   "<cmd>lua vim.diagnostic.open_float(0, {focus=false})<CR>",
   { silent = true, noremap = true }
 )
+
+require'lspconfig'.sqlls.setup{
+  capabilities = capabilities,
+  filetypes = { 'sql' },
+  root_dir = function(_)
+    return vim.loop.cwd()
+  end,
+}
