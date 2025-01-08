@@ -7,11 +7,13 @@ local lspconfig = require "lspconfig"
 -- list of all servers configured.
 lspconfig.servers = {
   "lua_ls",
+  "sqlls",
   "pyright",
 }
 
 -- list of servers configured with default config.
 local default_servers = {
+  "sqlls",
   "pyright",
 }
 
@@ -49,3 +51,17 @@ lspconfig.lua_ls.setup {
     },
   },
 }
+
+vim.diagnostic.config {
+  virtual_text = false,
+}
+
+-- Show line diagnostics automatically in hover window
+--vim.o.updatetime = 250
+--vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+vim.keymap.set(
+  "n",
+  "<leader>ld",
+  "<cmd>lua vim.diagnostic.open_float(0, {focus=false})<CR>",
+  { silent = true, noremap = true }
+)
