@@ -123,4 +123,8 @@ return {
       require "configs.mason-dap"
     end,
   },
+  {
+    "preservim/tagbar",
+    lazy = false,
+  },
 }
