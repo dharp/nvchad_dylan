@@ -35,3 +35,6 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- Highlight visual selection 
+vim.cmd "highlight Visual guibg= #616A6B guifg=NONE ctermbg=60 ctermfg=NONE"
