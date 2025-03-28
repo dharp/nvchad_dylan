@@ -9,21 +9,6 @@ return {
       -- or run <leader>ch to see copilot mapping section
     end,
   },
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   opts = {
-  --     mapping = {
-  --       -- disable  tab
-  --       ["<Tab>"] = function(callback)
-  --         callback()
-  --       end,
-
-  --       ["<S-Tab>"] = function(callback)
-  --         callback()
-  --       end,
-  --     },
-  --   },
-  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPre", "BufNewFile" },
@@ -126,5 +111,32 @@ return {
   {
     "preservim/tagbar",
     lazy = false,
+  },
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    dependencies = {
+      "tpope/vim-dadbod",
+      "kristijanhusak/vim-dadbod-completion",
+      ft = { "sql", "mysql", "plsql" },
+      lazy = false,
+    },
+    lazy = false,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    lazy = false,
+  },
+  {
+    "hrsh7th/cmp-nvim-lsp",
+    lazy = false,
+  },
+  {
+    "lervag/vimtex",
+    ft = { "tex", "latex" },
+    init = function()
+      -- Disable the default mapping for vimtex
+      vim.g.vimtex_view_method = "skim"
+      vim.g.vimtex_compiler_method = "latexmk" -- or your preferred compiler
+    end,
   },
 }

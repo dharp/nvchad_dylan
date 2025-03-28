@@ -7,13 +7,13 @@ local lspconfig = require "lspconfig"
 -- list of all servers configured.
 lspconfig.servers = {
   "lua_ls",
-  "sqlls",
+  --"sqlls",
   "pyright",
 }
 
 -- list of servers configured with default config.
 local default_servers = {
-  "sqlls",
+  --"sqlls",
   "pyright",
 }
 
@@ -67,10 +67,10 @@ vim.keymap.set(
   { silent = true, noremap = true }
 )
 
-require'lspconfig'.sqlls.setup{
-  capabilities = capabilities,
-  filetypes = { 'sql' },
-  root_dir = function(_)
-    return vim.loop.cwd()
-  end,
-}
+--require("lspconfig").sqlls.setup {
+--  capabilities = capabilities,
+--  filetypes = { "sql" },
+--  root_dir = function(_)
+--    return vim.loop.cwd()
+--  end,
+--}

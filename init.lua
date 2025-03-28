@@ -36,5 +36,27 @@ vim.schedule(function()
   require "mappings"
 end)
 
--- Highlight visual selection 
+-- Highlight visual selection
 vim.cmd "highlight Visual guibg= #616A6B guifg=NONE ctermbg=60 ctermfg=NONE"
+
+vim.wo.linebreak = true
+
+local cmp = require "cmp"
+cmp.setup {
+  mapping = cmp.mapping.preset.insert {
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<CR>"] = cmp.mapping.confirm { select = true },
+  },
+  sources = cmp.config.sources {
+    { name = "vim-dadbod-completion" },
+    { name = "buffer" },
+    { name = "path" },
+  },
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "sql",
+  callback = function()
+    cmp.setup.buffer { sources = { { name = "vim-dadbod-completion" } } }
+  end,
+})
