@@ -62,4 +62,3 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.g.copilot_filetypes = { ["tex"] = false}
-vim.g.vimtex_indent_enabled = 0
