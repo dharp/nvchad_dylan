@@ -11,6 +11,7 @@ local options = {
     "vimdoc",
     "yaml",
     "sql",
+    "latex",
   },
 
   highlight = {

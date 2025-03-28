@@ -132,11 +132,12 @@ return {
   },
   {
     "lervag/vimtex",
-    ft = { "tex", "latex" },
+    ft = { "tex" },
     init = function()
       -- Disable the default mapping for vimtex
       vim.g.vimtex_view_method = "skim"
       vim.g.vimtex_compiler_method = "latexmk" -- or your preferred compiler
+      vim.g.vimtex_indent_enabled = 0
     end,
   },
 }

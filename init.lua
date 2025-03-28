@@ -60,3 +60,6 @@ vim.api.nvim_create_autocmd("FileType", {
     cmp.setup.buffer { sources = { { name = "vim-dadbod-completion" } } }
   end,
 })
+
+vim.g.copilot_filetypes = { ["tex"] = false}
+vim.g.vimtex_indent_enabled = 0
