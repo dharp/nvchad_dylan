@@ -142,4 +142,11 @@ return {
       vim.g.vimtex_quickfix_open_on_error = 1
     end,
   },
+  {
+    "brymer-meneses/grammar-guard.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "williamboman/nvim-lsp-installer",
+    },
+  },
 }

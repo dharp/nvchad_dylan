@@ -52,6 +52,9 @@ cmp.setup {
     { name = "buffer" },
     { name = "path" },
   },
+  completion = {
+    autocomplete = false,
+  },
 }
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -61,4 +64,26 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.g.copilot_filetypes = { ["tex"] = false}
+vim.g.copilot_filetypes = { ["tex"] = false }
+
+require("grammar-guard").init()
+
+require("lspconfig").grammar_guard.setup {
+  cmd = { "/opt/homebrew/Cellar/ltex-ls/16.0.0/bin/ltex-ls" },
+  settings = {
+    ltex = {
+      enabled = { "latex", "tex", "bib", "markdown" },
+      language = "en",
+      diagnosticSeverity = "information",
+      setenceCacheSize = 2000,
+      additionalRules = {
+        enablePickyRules = true,
+        motherTongue = "en",
+      },
+      trace = { server = "verbose" },
+      dictionary = {},
+      disabledRules = {},
+      hiddenFalsePositives = {},
+    },
+  },
+}
